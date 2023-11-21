@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import api from "@/api";
 
 export default async function HomePage() {
@@ -14,7 +16,7 @@ export default async function HomePage() {
               src={restaurant.image}
             />
             <h2 className="inline-flex gap-2 text-lg font-bold">
-              <span>{restaurant.name}</span>
+              <Link href={`/${restaurant.id}`}>{restaurant.name}</Link>
               <small className="inline-flex gap-1">
                 <span>⭐</span>
                 <span>{restaurant.score}</span>
