@@ -2,6 +2,8 @@ import Link from "next/link";
 
 import api from "@/api";
 
+/* export const dynamic = "force-dynamic"; */
+
 export default async function HomePage() {
   const restaurants = await api.list();
 
