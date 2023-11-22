@@ -1,4 +1,7 @@
+"use client";
 import React from "react";
+import dynamic from "next/dynamic";
+import Link from "next/link";
 
 interface RestaurantCardProps {
   restaurant: RestaurantProps;
@@ -15,6 +18,10 @@ interface RestaurantProps {
 }
 
 function RestaurantCard({restaurant}: RestaurantCardProps) {
+  const isFavourite = window.localStorage.getItem("favorites")?.includes(restaurant.id);
+
+
+
   return (
     <article key={restaurant.id}>
       <img
@@ -29,6 +36,12 @@ function RestaurantCard({restaurant}: RestaurantCardProps) {
           <span>{restaurant.score}</span>
           <span className="font-normal opacity-75">({restaurant.ratings})</span>
         </small>
+        <button
+          className={`text-xl text-red-500 ${isFavourite ? "opacity-100" : "opacity-20"}`}
+          type="button"
+        >
+          ♥
+        </button>
       </h2>
       <p className="opacity-90">{restaurant.description}</p>
     </article>
