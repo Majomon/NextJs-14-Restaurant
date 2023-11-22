@@ -7,7 +7,6 @@ interface Restaurant {
   score: number;
   ratings: number;
 }
-
 const restaurants: Restaurant[] = [
   {
     id: "1",
