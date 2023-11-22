@@ -168,6 +168,21 @@ const api = {
 
     return restaurant;
   },
+  search: async (query: string): Promise<Restaurant[]> => {
+    // Obtenemos los restaurantes
+    const results = await api
+      .list()
+      .then((restaurants) =>
+        restaurants.filter(
+          (restaurant) =>
+            typeof restaurant.name === "string" &&
+            restaurant.name.toLowerCase().includes(query.toLowerCase()),
+        ),
+      );
+
+    // Los retornamos
+    return results;
+  },
 };
 
 export default api;
