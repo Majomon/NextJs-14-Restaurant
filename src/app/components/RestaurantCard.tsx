@@ -20,8 +20,6 @@ interface RestaurantProps {
 function RestaurantCard({restaurant}: RestaurantCardProps) {
   const isFavourite = window.localStorage.getItem("favorites")?.includes(restaurant.id);
 
-
-
   return (
     <article key={restaurant.id}>
       <img
